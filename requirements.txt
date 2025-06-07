@@ -1,0 +1,8 @@
+psutil
+pandas
+numpy
+scikit-learn
+joblib
+tk
+win10toast
+pywin32
