@@ -13,10 +13,10 @@ from PIL import Image, ImageTk
 import wmi
 import sqlite3
 import pandas as pd
-from db_manager import DataBase
-from ai_predictive import PredictiveAI
-from notifier import Notifier
-from cleaner import Cleaner
+from core.db_manager import DataBase
+from core.ai_predictive import PredictiveAI
+from core.notifier import Notifier
+from core.cleaner import Cleaner
 import tempfile
 import sys
 import fnmatch
@@ -42,7 +42,7 @@ def fix_wndproc_errors():
 class OptimizerApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Optimizer AI PRO - By ISAMEL TRUJILLO")
+        self.root.title("Optimizer AI PRO - By ISAMEL TRUJILLO - JOSUE ROMERO")
         self.root.geometry("900x750")
         self.root.configure(bg='#121212')
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)
@@ -53,7 +53,7 @@ class OptimizerApp:
         self.setup_tabs()
         
         # Sistema y modelos
-        self.db = DataBase("system_monitor.db")
+        self.db = DataBase("./database/system_monitor.db")
         self.predictive_ai = PredictiveAI(self.db.db_path)
         self.notifier = Notifier()
         self.cleaner = Cleaner()
@@ -80,12 +80,13 @@ class OptimizerApp:
         self.update_ui()
 
     def load_alien_images(self):
-        """Carga las imágenes del alien con manejo robusto (CORREGIDO)"""
+        """Carga las imágenes del alien en la interfaz"""
+        base_path = os.path.join('static')
         image_files = {
-            'normal': 'alien_estado_normal.png',
-            'green': 'alien_estado_analizando.png',  # Usando nombres reales de tus archivos
-            'blue': 'alien_estado_limpiando.png',
-            'red': 'alien_estado_alerta.png'
+            'normal': os.path.join(base_path, 'alien_estado_normal.png'),
+            'green': os.path.join(base_path, 'alien_estado_analizando.png'),
+            'blue': os.path.join(base_path, 'alien_estado_limpiando.png'),
+            'red': os.path.join(base_path, 'alien_estado_alerta.png')
         }
         
         for state, filename in image_files.items():

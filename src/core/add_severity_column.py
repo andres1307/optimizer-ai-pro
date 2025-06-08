@@ -1,7 +1,7 @@
 import sqlite3
 
 # Ruta al archivo de base de datos SQLite
-db_path = "Optimizer AI/system_monitor.db"  # Asegúrate que esta ruta es correcta desde donde ejecutas este script
+db_path = "src/database/system_monitor.db"  # Asegúrate que esta ruta es correcta desde donde ejecutas este script
 
 # Conectar a la base de datos
 conn = sqlite3.connect(db_path)

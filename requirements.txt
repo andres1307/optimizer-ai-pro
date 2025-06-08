@@ -1,3 +1,4 @@
+matplotlib
 psutil
 pandas
 numpy
@@ -6,3 +7,6 @@ joblib
 tk
 win10toast
 pywin32
+pillow
+wmi
+tqdm
