@@ -8,7 +8,7 @@ import sqlite3
 from typing import List, Dict, Union  # NEW: Tipado para mejor documentación
 
 class PredictiveAI:
-    def __init__(self, db_path: str, model_path: str = "./model_iforest.pkl", contamination: float = 0.05):
+    def __init__(self, db_path: str, model_path: str = "model_iforest.pkl", contamination: float = 0.05):
         """Inicialización con hiperparámetros ajustables (NEW)."""
         self.db_path = db_path
         self.model_path = model_path

@@ -53,7 +53,7 @@ class OptimizerApp:
         self.setup_tabs()
         
         # Sistema y modelos
-        self.db = DataBase("./database/system_monitor.db")
+        self.db = DataBase("system_monitor.db")
         self.predictive_ai = PredictiveAI(self.db.db_path)
         self.notifier = Notifier()
         self.cleaner = Cleaner()
@@ -220,7 +220,7 @@ class OptimizerApp:
         ttk.Button(
             btn_frame, 
             text="🧬 Info del Sistema", 
-            command=self.show_system_info
+            command=lambda: [self.start_blinking_alien('red'), self.show_system_info()]
         ).grid(row=0, column=2, padx=5)
 
     def setup_graphs_tab(self):
