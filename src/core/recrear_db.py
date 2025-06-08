@@ -2,8 +2,7 @@ import sqlite3
 import os
 
 # Ruta de la carpeta y archivo de base de datos
-folder = "Optimizer AI"
-db_path = os.path.join(folder, "system_monitor.db")
+db_path = os.path.join("src/database", "system_monitor.db")
 
 # Crear la carpeta si no existe
 if not os.path.exists(folder):
